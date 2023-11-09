@@ -1,0 +1,45 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #941919;
+  font-weight: bold;
+}
+
+#walletInput {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+#fetchButton {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.wallet-info {
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  background-color: #8e8080;
+}
+.info-item {
+  margin-bottom: 8px;
+}
+
+.wallet-info p {
+  margin: 1px;
+}

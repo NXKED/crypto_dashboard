@@ -1,6 +1,7 @@
 import React from 'react';
 import WalletInfo from './components/WalletInfo';
 import ReactDOM from 'react-dom';
+import './style.css';
 
 const App = () => {
   const accountName = 'abcde.wam';

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { getAccountInfo } from '../utils/api';
 import { BLOCKCHAIN } from '../const';
-
+import '../style.css';
 
 const WalletInfo = ({ accountName }) => {
   const [accountData, setAccountData] = useState(null);
@@ -22,8 +22,7 @@ const WalletInfo = ({ accountName }) => {
   }, [accountName]);
 
   return (
-    <div>
-      <h1>Wallet Information</h1>
+    <div className="wallet-info">
       {accountData ? (
         <div>
           <p>Account Name: {accountData.account_name}</p>
