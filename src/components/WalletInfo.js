@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import { getAccountInfo } from '../utils/api';
 import { BLOCKCHAIN } from '../const';
 
+
 const WalletInfo = ({ accountName }) => {
   const [accountData, setAccountData] = useState(null);
   
@@ -29,6 +30,10 @@ const WalletInfo = ({ accountName }) => {
           <p>RAM Usage: {accountData.ram_usage}</p>
           <p>CPU Usage: {accountData.cpu_limit.used}/{accountData.cpu_limit.max}</p>
           <p>NET Usage: {accountData.net_limit.used}/{accountData.net_limit.max}</p>
+          <p>Liquid: {accountData.core_liquid_balance}</p>
+          <p>Staked CPU: {accountData.total_resources.cpu_weight}</p>
+          <p>Bytes RAM: {accountData.total_resources.ram_bytes}</p>
+          <p>Staked NET: {accountData.total_resources.net_weight}</p>
         </div>
       ) : (
         <p>Loading...</p>

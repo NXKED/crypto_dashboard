@@ -3,7 +3,7 @@ import WalletInfo from './components/WalletInfo';
 import ReactDOM from 'react-dom';
 
 const App = () => {
-  const accountName = 'as5ga.wam';
+  const accountName = 'abcde.wam';
 
   return (
     <div>
