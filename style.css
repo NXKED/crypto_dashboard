@@ -1,0 +1,23 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+  background: red;
+}
+
+#app {
+  .container {
+    margin: 0 auto;
+    padding: 1rem;
+  }
+}
+
+#info {
+  .container {
+    padding: 4px;
+    margin-top: 4px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}

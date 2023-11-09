@@ -1,0 +1,73 @@
+import { Wax } from "@eosdacio/ual-wax";
+import React from "react";
+import { Anchor } from "ual-anchor";
+
+const MAINNET = {
+  CHAIN: "1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4",
+  API_ENDPOINT: "wax.eosphere.io",
+  ATOMIC_ENDPOINT: "wax-atomic-api.eosphere.io",
+  AUTHENTICATORS: [],
+  API_BASE_URL: "http://wax.cryptolions.io/v1/chain",
+};
+
+export const ENDPOINTS = {
+  ATOMIC: [
+    "api.wax.liquidstudios.io",
+    "atomic.tokengamer.io",
+    "api-wax-aa.eosarabia.net",
+    "aa-api-wax.eosauthority.com",
+    "atomic.3dkrender.com",
+    "atomic.ledgerwise.io",
+    "atomic.hivebp.io",
+    "wax-atomic.eosiomadrid.io",
+    "aa.dapplica.io",
+    "wax-aa.eu.eosamsterdam.net",
+    "api.wax-aa.bountyblok.io",
+    "wax-atomic-api.eosphere.io",
+    "wax-atomic.wizardsguild.one",
+    "wax-aa.eosdublin.io",
+    "atomic.wax.eosrio.io",
+    "api.atomic.greeneosio.com",
+  ],
+  API: [
+    "api-wax.eosarabia.net",
+    "waxapi.ledgerwise.io",
+    "api.wax.liquidstudios.io",
+    "wax.pink.gg",
+    "wax.greymass.com",
+    "wax.eosdublin.io",
+    "wax.eu.eosamsterdam.net",
+    "wax.blacklusion.io",
+    "wax.cryptolions.io",
+    "api-wax.eosauthority.com",
+    "api.wax.greeneosio.com",
+    "api.waxsweden.org",
+    "api.hivebp.io",
+    "apiwax.3dkrender.com",
+    "wax.eosdac.io",
+    "wax.blokcrafters.io",
+    "wax.eosn.io",
+    "api.wax.eosdetroit.io",
+    "wax-bp.wizardsguild.one",
+    "api.wax.alohaeos.com",
+    "wax.eoseoul.io",
+    "wax.eosphere.io",
+    "wax.dapplica.io",
+  ],
+};
+
+export const WAX_CHAIN = {
+  chainId: MAINNET.CHAIN,
+  rpcEndpoints: [{ protocol: "https", host: MAINNET.API_ENDPOINT, port: 443 }],
+};
+export const DAPP_NAME = "appCheck";
+
+export const MAINNET_AUTHENTICATORS = [
+  new Anchor([WAX_CHAIN], { appName: DAPP_NAME }),
+  new Wax([WAX_CHAIN], {}),
+];
+export const TESTNET_AUTHENTICATORS = [
+  new Anchor([WAX_CHAIN], { appName: DAPP_NAME }),
+];
+
+export const BLOCKCHAIN = { ...MAINNET };
