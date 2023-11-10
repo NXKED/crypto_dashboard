@@ -26,6 +26,7 @@ const WalletInfo = ({ accountName }) => {
       {accountData ? (
         <div>
           <p>Account Name: {accountData.account_name}</p>
+          <br />
           <p>RAM Usage: {accountData.ram_usage}</p>
           <p>CPU Usage: {accountData.cpu_limit.used}/{accountData.cpu_limit.max}</p>
           <p>NET Usage: {accountData.net_limit.used}/{accountData.net_limit.max}</p>

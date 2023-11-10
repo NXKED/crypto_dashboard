@@ -1,8 +1,9 @@
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -14,6 +15,22 @@ body {
 h1 {
   color: #941919;
   font-weight: bold;
+  font-size: 4em;
+  margin-bottom: 0.2em;
+}
+h2 {
+  font-weight: normal;
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+h3 {
+  font-weight: normal;
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+}
+
+#root {
+  background-image: linear-gradient(to bottom, #3b1515);
 }
 
 #walletInput {
@@ -21,12 +38,56 @@ h1 {
   margin-right: 10px;
 }
 
-#fetchButton {
+button {
   padding: 10px;
-  background-color: #007bff;
+  background-color: gray;
   color: #fff;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+  text-align: center;
+  box-shadow: 0 0 5px 0 black;
+
+  &:hover {
+    background-color: rgb(2, 2, 60);
+  }
+
+  &:active {
+    background-color: rgb(153, 31, 31);
+  }
+
+  &:disabled {
+    cursor: no-drop;
+    background-color: transparent;
+  }
+}
+
+input {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 5px 0 black;
+  }
+}
+
+.wallet-info {
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  background-color: #8e8080;
+}
+
+.info-item {
+  margin-bottom: 8px;
+}
+
+.wallet-info p {
+  margin: 1px;
 }
 
 .wallet-info {
@@ -42,4 +103,20 @@ h1 {
 
 .wallet-info p {
   margin: 1px;
+}
+
+.bar-bottom {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5em;
+  line-height: 15px;
+  display: flex;
+  background-color: #8e8080;
+  box-shadow: 0 0 5px 0 gray;
+}
+
+/* media screen */
+
+@media screen and (min-width: 768px) {
+  /*todo */
 }
