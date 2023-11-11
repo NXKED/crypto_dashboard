@@ -1,7 +1,7 @@
 import { BLOCKCHAIN } from '../const';
 
 
-export const getAccountInfo = async (accountName, setAccountData) => {
+export const getAccountInfo = async (accountName) => {
   const response = await fetch(`${BLOCKCHAIN.API_BASE_URL}/get_account`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json'},
@@ -15,7 +15,7 @@ export const getAccountInfo = async (accountName, setAccountData) => {
   }
 
   const data = await response.json();
-  setAccountData(data);
+  return data;
 };
 
 

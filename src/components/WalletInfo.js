@@ -8,11 +8,11 @@ const WalletInfo = ({ accountName }) => {
   
 
   useEffect(() => {
-    
-    
+    console.log('Wallet info component rerendered with acc name:', accountName);
     const fetchAccountData = async () => {
       try {
-        const data = await getAccountInfo(accountName, setAccountData);
+        const data = await getAccountInfo(accountName);
+        setAccountData(data);
       } catch (error) {
         console.error('Error fetching account info:', error);
       }

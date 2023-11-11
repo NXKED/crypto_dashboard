@@ -1,15 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" src="/src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/src/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <title>Wallet Info</title>
-  <script defer="defer" src="/bundle.js"></script>
-  <script defer="defer" src="/bundle.js"></script>
-  <script defer="defer" src="/bundle.js"></script>
   <script defer="defer" src="/bundle.js"></script>
 </head>
 
@@ -21,19 +18,8 @@
     <div id="crypto"></div>
     <div id="APP"></div>
     <div id="root"></div>
-    <div id="walletSearch">
-      <input id="walletInput" placeholder="Enter Wallet">
-      <button id="fetchButton">Fetch Account Data</button>
-    </div>
+    <div id="walletSearch"></div>
     <script src="/bundle.js"></script>
-    <script>document.getElementById('fetchButton').addEventListener('click', function () {
-        window.dispatchEvent(new Event('fetchAccountData'));
-      });
-
-      document.getElementById('walletInput').addEventListener('input', function (event) {
-        const customEvent = new CustomEvent('updatedAccountName', { detail: event.target.value });
-        window.dispatchEvent(customEvent);
-      });</script>
   </main>
   <footer>
     <a href="https://github.com/NXKED" id="links">Github</a>
@@ -42,4 +28,5 @@
     <a href="https://coinmarketcap.com/" id="links">Coinmarketcap</a>
   </footer>
 </body>
+
 </html>
