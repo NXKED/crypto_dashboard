@@ -30,10 +30,10 @@ const WalletInfo = ({ accountName }) => {
           <p>RAM Usage: {accountData.ram_usage}</p>
           <p>CPU Usage: {accountData.cpu_limit.used}/{accountData.cpu_limit.max}</p>
           <p>NET Usage: {accountData.net_limit.used}/{accountData.net_limit.max}</p>
-          <p>Liquid: {accountData.core_liquid_balance}</p>
-          <p>Staked CPU: {accountData.total_resources.cpu_weight}</p>
-          <p>Bytes RAM: {accountData.total_resources.ram_bytes}</p>
-          <p>Staked NET: {accountData.total_resources.net_weight}</p>
+          <p>Liquid: {parseFloat(accountData.core_liquid_balance).toFixed(2)}</p>
+          <p>Staked CPU: {parseFloat(accountData.total_resources.cpu_weight).toFixed(2)}</p>
+          <p>Owned RAM: {accountData.total_resources.ram_bytes}</p>
+          <p>Staked NET: {parseFloat(accountData.total_resources.net_weight).toFixed(2)}</p>
         </div>
       ) : (
         <p>Loading...</p>

@@ -1,8 +1,45 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" src="/src/style.css"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"><title>Wallet Info</title><script defer="defer" src="/bundle.js"></script><script defer="defer" src="/bundle.js"></script><script defer="defer" src="/bundle.js"></script></head><body><h1>Wallet Information</h1><div id="crypto"></div><div id="APP"></div><div id="root"></div><input id="walletInput" placeholder="Enter Wallet/ Account Name"> <button id="fetchButton">Fetch Account Data</button><script src="/bundle.js"></script><script>document.getElementById('fetchButton').addEventListener('click', function () {
-      window.dispatchEvent(new Event('fetchAccountData'));
-    });
+<!doctype html>
+<html lang="en">
 
-    document.getElementById('walletInput').addEventListener('input', function (event) {
-      const customEvent = new CustomEvent('updatedAccountName', { detail: event.target.value });
-      window.dispatchEvent(customEvent);
-    });</script></body></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" src="/src/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <title>Wallet Info</title>
+  <script defer="defer" src="/bundle.js"></script>
+  <script defer="defer" src="/bundle.js"></script>
+  <script defer="defer" src="/bundle.js"></script>
+  <script defer="defer" src="/bundle.js"></script>
+</head>
+
+<body>
+  <main>
+    <div id="bar-top">
+      <h1>Wax Dashboard</h1>
+    </div>
+    <div id="crypto"></div>
+    <div id="APP"></div>
+    <div id="root"></div>
+    <div id="walletSearch">
+      <input id="walletInput" placeholder="Enter Wallet">
+      <button id="fetchButton">Fetch Account Data</button>
+    </div>
+    <script src="/bundle.js"></script>
+    <script>document.getElementById('fetchButton').addEventListener('click', function () {
+        window.dispatchEvent(new Event('fetchAccountData'));
+      });
+
+      document.getElementById('walletInput').addEventListener('input', function (event) {
+        const customEvent = new CustomEvent('updatedAccountName', { detail: event.target.value });
+        window.dispatchEvent(customEvent);
+      });</script>
+  </main>
+  <footer>
+    <a href="https://github.com/NXKED" id="links">Github</a>
+    <a href="https://atomichub.io/profile/wax-mainnet/p2wti.wam" id="links">AtomicHub</a>
+    <a href="https://neftyblocks.com" id="links">Neftyblocks</a>
+    <a href="https://coinmarketcap.com/" id="links">Coinmarketcap</a>
+  </footer>
+</body>
+</html>

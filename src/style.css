@@ -1,19 +1,17 @@
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f4f4f4;
+  background: linear-gradient(to bottom,#5e0101,#1e0000);
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+main {
+  min-height: 100vh;
 }
 
 h1 {
-  color: #941919;
+  color: #ffffff;
   font-weight: bold;
   font-size: 4em;
   margin-bottom: 0.2em;
@@ -30,26 +28,25 @@ h3 {
 }
 
 #root {
-  background-image: linear-gradient(to bottom, #3b1515);
+  /**
+    background-image: linear-gradient(to bottom, #3b1515,#000000);
+  */
 }
 
-#walletInput {
-  padding: 10px;
-  margin-right: 10px;
-}
+
 
 button {
-  padding: 10px;
-  background-color: gray;
-  color: #fff;
+  padding: 14px;
+  background-color: darkred;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   text-align: center;
-  box-shadow: 0 0 5px 0 black;
-
+  
   &:hover {
-    background-color: rgb(2, 2, 60);
+    background-color: rgb(60, 2, 2);
+    box-shadow: 0 0 5px 0 rgb(255, 255, 255);
   }
 
   &:active {
@@ -62,25 +59,52 @@ button {
   }
 }
 
-input {
+#walletInput {
   background-color: transparent;
-  border: 1px solid black;
+  border: 2px solid gray;
   border-radius: 8px;
   font-family: "Poppins", sans-serif;
   outline: none;
+  padding: 10px;
+  margin-right: 10px;
+  color: white;
 
   &:focus {
-    box-shadow: 0 0 5px 0 black;
+    box-shadow: 0 0 5px 0 rgb(255, 255, 255);
   }
+
 }
 
+#walletSearch {
+  margin: 1em 0;
+}
+
+
 .crypto-price {
-  border: 2px solid #ccc;
   font-weight: bold;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background: linear-gradient(to bottom, #ffcc00, #ff6600);
+  position: relative;
+}
+
+.crypto-price::before,
+.crypto-price::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ccc;
+}
+
+.crypto-price::before {
+  top: 0;
+}
+
+.crypto-price::after {
+  bottom: 0;
 }
 .crypto-price p {
   margin: 0;
@@ -90,9 +114,10 @@ input {
 .wallet-info {
   border: 2px solid #ccc;
   padding: 10px;
-  margin: 5px;
+  margin: 10px auto;
   border-radius: 8px;
-  background-color: #8e8080;
+  background-color: #8e80807f;
+  max-width: 260px;
 }
 .info-item {
   margin-bottom: 8px;
@@ -100,20 +125,59 @@ input {
 
 .wallet-info p {
   margin: 1px;
+  color: rgba(255, 255, 255, 0.698);
 }
 
-.bar-bottom {
+#bar-top {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5em;
+  line-height: 50px;
+  margin-bottom:3em;
+  text-shadow: 0 0 15px 0 rgb(17, 58, 205);
+  width: 100%;
+  text-align: center;
+}
+
+footer {
   color: white;
   font-family: "Poppins", sans-serif;
   font-size: 1.5em;
   line-height: 15px;
+  position: fixed;
+  bottom: 0;
   display: flex;
-  background-color: #8e8080;
+  flex-flow: row;
+  background-color: #8e80807c;
   box-shadow: 0 0 5px 0 gray;
+  width: 100%;
+  justify-content: space-between;
 }
 
-/* media screen */
+#links {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
 
+
+
+
+
+
+
+
+
+
+/* media screen */
+/*
 @media screen and (min-width: 768px) {
-  /*todo */
+  todo 
+}
+*/
+@media screen and (min-width: 1200px) {
+  body, footer {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
