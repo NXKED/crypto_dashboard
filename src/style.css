@@ -74,20 +74,17 @@ input {
   }
 }
 
-.wallet-info {
+.crypto-price {
   border: 2px solid #ccc;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 8px;
-  background-color: #8e8080;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #ffcc00, #ff6600);
 }
-
-.info-item {
-  margin-bottom: 8px;
-}
-
-.wallet-info p {
-  margin: 1px;
+.crypto-price p {
+  margin: 0;
+  text-shadow: 0 0 5px white;
 }
 
 .wallet-info {
