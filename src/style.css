@@ -162,7 +162,11 @@ footer {
 
 
 
-
+.bold-space {
+display: flex;
+justify-content: space-between;
+font-weight: bold;
+}
 
 
 

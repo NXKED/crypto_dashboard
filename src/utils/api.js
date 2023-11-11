@@ -17,12 +17,3 @@ export const getAccountInfo = async (accountName) => {
   const data = await response.json();
   return data;
 };
-
-
-/*export const getAccountInfo = async (accountName) => {
-  const response = await fetch(`${BLOCKCHAIN.API_BASE_URL}/get_account?account_name=${accountName}`);
-  const data = await response.json();
-  return data;
-};
-
-*/

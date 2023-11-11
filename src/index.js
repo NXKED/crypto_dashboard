@@ -7,18 +7,13 @@ import CryptoPrice from './components/Blockchain';
 const App = () => {
   const [accountName, setAccountName] = useState('p2wti.wam');
 
-  const handleFetchAccountData = () => {
-    console.log('Fetching account data (reactbutton)...');
-  };
-
   const handleUpdatedAccountName = (newAccountName) => {
     console.log('Handling react updated account name:', newAccountName);
     setAccountName(newAccountName);
   };
 
   useEffect(() => {
-    document.getElementById('reactFetchButton').addEventListener('click', handleFetchAccountData);
-    const inputElement = document.getElementById('reactWalletInput');
+    const inputElement = document.getElementById('walletInput');
     
     const handleInputChange = function (event) {
       const inputValue = event.target.value;
@@ -33,7 +28,6 @@ const App = () => {
     inputElement.addEventListener('input', handleInputChange);
 
     return () => {
-      document.getElementById('reactFetchButton').removeEventListener('click', handleFetchAccountData);
       inputElement.removeEventListener('input', handleInputChange);
     };
   }, []);
@@ -44,12 +38,9 @@ const App = () => {
       <WalletInfo accountName={accountName} />
       <div id="walletSearch">
         <input
-          id="reactWalletInput"
+          id="walletInput"
           placeholder="Enter Wallet"
         />
-        <button id="reactFetchButton">
-          Fetch Account Data
-        </button>
       </div>
     </div>
   );

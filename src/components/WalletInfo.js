@@ -27,14 +27,14 @@ const WalletInfo = ({ accountName }) => {
         <div>
           <p>Account: {accountData.account_name}</p>
           <br />
-          <p>Liquid: {parseFloat(accountData.core_liquid_balance).toFixed(2)}</p>
-          <p>CPU Usage: {((accountData.cpu_limit.used / accountData.cpu_limit.max) * 100).toFixed(2)}%</p>
-          <p>RAM Usage: {((accountData.ram_usage / accountData.total_resources.ram_bytes) * 100).toFixed(2)}%</p>
-          <p>NET Usage: {((accountData.net_limit.used / accountData.net_limit.max) * 100).toFixed(2)}%</p>
+          <p>Liquid Wax: <span style={{ fontWeight: 'bold' }}>{parseFloat(accountData.core_liquid_balance).toFixed(2)}</span></p>
+          <p>CPU Usage: <span style={{ fontWeight: 'bold' }}>{((accountData.cpu_limit.used / accountData.cpu_limit.max) * 100).toFixed(2)}%</span></p>
+          <p>RAM Usage: <span style={{ fontWeight: 'bold' }}>{((accountData.ram_usage / accountData.total_resources.ram_bytes) * 100).toFixed(2)}%</span></p>
+          <p>NET Usage: <span style={{ fontWeight: 'bold' }}>{((accountData.net_limit.used / accountData.net_limit.max) * 100).toFixed(2)}%</span></p>
           <br/>
-          <p>Staked CPU: {parseFloat(accountData.total_resources.cpu_weight).toFixed(2)}</p>
-          <p>Owned RAM: {accountData.total_resources.ram_bytes} b</p>
-          <p>Staked NET: {parseFloat(accountData.total_resources.net_weight).toFixed(2)}</p>
+          <p>Staked CPU: <span style={{ fontWeight: 'bold' }}>{parseFloat(accountData.total_resources.cpu_weight).toFixed(2)}</span></p>
+          <p>Owned RAM: <span style={{ fontWeight: 'bold' }}>{accountData.total_resources.ram_bytes} b</span></p>
+          <p>Staked NET: <span style={{ fontWeight: 'bold' }}>{parseFloat(accountData.total_resources.net_weight).toFixed(2)}</span></p>
         </div>
       ) : (
         <p>Loading...</p>
