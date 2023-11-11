@@ -67,3 +67,5 @@ const CryptoPrice = () => {
 };
 
 export default CryptoPrice;
+
+//TODO add banano
