@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import WalletInfo from './components/WalletInfo';
 import ReactDOM from 'react-dom';
 import './style.css';
@@ -18,14 +18,23 @@ const App = () => {
 
   useEffect(() => {
     document.getElementById('reactFetchButton').addEventListener('click', handleFetchAccountData);
-    document.getElementById('reactWalletInput').addEventListener('input', function (event) {
-      console.log('React Input value changed:', event.target.value);
-      handleUpdatedAccountName(event.target.value);
-    });
+    const inputElement = document.getElementById('reactWalletInput');
+    
+    const handleInputChange = function (event) {
+      const inputValue = event.target.value;
+      console.log('React Input value changed:', inputValue);
+      
+      // only call if greater than 8 chars (for wax wallets xxxxx.wam) 
+      if (inputValue.length > 8) {
+        handleUpdatedAccountName(inputValue);
+      }
+    };
+
+    inputElement.addEventListener('input', handleInputChange);
 
     return () => {
       document.getElementById('reactFetchButton').removeEventListener('click', handleFetchAccountData);
-      document.getElementById('reactWalletInput').removeEventListener('input', handleUpdatedAccountName);
+      inputElement.removeEventListener('input', handleInputChange);
     };
   }, []);
 
@@ -37,7 +46,6 @@ const App = () => {
         <input
           id="reactWalletInput"
           placeholder="Enter Wallet"
-          onChange={(e) => handleUpdatedAccountName(e.target.value)}
         />
         <button id="reactFetchButton">
           Fetch Account Data
