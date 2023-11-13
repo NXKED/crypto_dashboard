@@ -3,9 +3,10 @@ import WalletInfo from './components/WalletInfo';
 import ReactDOM from 'react-dom';
 import './style.css';
 import CryptoPrice from './components/Blockchain';
+import WalletContainer from './components/WalletContainer';
 
 const App = () => {
-  const [accountName, setAccountName] = useState('p2wti.wam');
+  const [accountName, setAccountName] = useState('');
 
   const handleUpdatedAccountName = (newAccountName) => {
     console.log('Handling react updated account name:', newAccountName);
@@ -35,6 +36,7 @@ const App = () => {
   return (
     <div>
       <CryptoPrice />
+      <WalletContainer />
       <WalletInfo accountName={accountName} />
       <div id="walletSearch">
         <input

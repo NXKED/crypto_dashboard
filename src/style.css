@@ -13,7 +13,7 @@ main {
 h1 {
   color: #ffffff;
   font-weight: bold;
-  font-size: 4em;
+  font-size: 3em;
   margin-bottom: 0.2em;
 }
 h2 {
@@ -79,6 +79,10 @@ button {
   margin: 1em 0;
 }
 
+#wallet-showcase {
+  display: flex;
+}
+
 
 .crypto-price {
   font-weight: bold;
@@ -88,6 +92,15 @@ button {
   background: linear-gradient(to bottom, #ffcc00, #ff6600);
   position: relative;
 }
+
+#wallet-total {
+  font-weight: bold;
+  background: linear-gradient(to bottom, #ff6a00, #ff2200);
+  text-align: center;
+  border-radius:8px;
+}
+
+
 
 .crypto-price::before,
 .crypto-price::after {
@@ -114,10 +127,10 @@ button {
 .wallet-info {
   border: 2px solid #ccc;
   padding: 10px;
-  margin: 10px auto;
+  margin: 15px auto;
   border-radius: 8px;
   background-color: #8e80807f;
-  max-width: 180px;
+  max-width: 210px;
 }
 .info-item {
   margin-bottom: 8px;

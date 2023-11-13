@@ -33,11 +33,11 @@ const WalletInfo = ({ accountName }) => {
           <p>NET Usage: <span style={{ fontWeight: 'bold' }}>{((accountData.net_limit.used / accountData.net_limit.max) * 100).toFixed(2)}%</span></p>
           <br/>
           <p>Staked CPU: <span style={{ fontWeight: 'bold' }}>{parseFloat(accountData.total_resources.cpu_weight).toFixed(2)}</span></p>
-          <p>Owned RAM: <span style={{ fontWeight: 'bold' }}>{accountData.total_resources.ram_bytes} b</span></p>
+          <p>Owned RAM: <span style={{ fontWeight: 'bold' }}>{accountData.total_resources.ram_bytes}</span></p>
           <p>Staked NET: <span style={{ fontWeight: 'bold' }}>{parseFloat(accountData.total_resources.net_weight).toFixed(2)}</span></p>
         </div>
       ) : (
-        <p>Loading...</p>
+        <p>Waiting for Input...</p>
       )}
     </div>
   );
