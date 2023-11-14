@@ -1,5 +1,5 @@
 body {
-  font-family: "Poppins", sans-serif;
+font-family: 'Kdam Thmor Pro', sans-serif;
   background: linear-gradient(to bottom,#5e0101,#1e0000);
   margin: 0;
   padding: 0;
@@ -12,6 +12,7 @@ main {
 
 h1 {
   color: #ffffff;
+  font-family: 'Kdam Thmor Pro', sans-serif;
   font-weight: bold;
   font-size: 3em;
   margin-bottom: 0.2em;
@@ -61,9 +62,9 @@ button {
 
 #walletInput {
   background-color: transparent;
-  border: 2px solid gray;
+  border: 1px solid gray;
   border-radius: 8px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Kdam Thmor Pro', sans-serif;
   outline: none;
   padding: 10px;
   margin-right: 10px;
@@ -154,7 +155,7 @@ button {
 
 footer {
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Kdam Thmor Pro', sans-serif;
   font-size: 1.5em;
   line-height: 15px;
   position: fixed;

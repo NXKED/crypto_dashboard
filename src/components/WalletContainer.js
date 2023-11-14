@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from "react";
 import WalletInfo from "./WalletInfo";
 import { getAccountInfo } from "../utils/api";
+import { initialWallets } from "../const";
 
 const WalletContainer = () => {
-  const initialWallets = ["p2wti.wam", "t.keg.wam", "nicotinamide", "bananamonkey", "plsdontrugme"];
   const [wallets, setWallets] = useState(initialWallets);
   const [totalLiquid, setTotalLiquid] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchTotalLiquid = async () => {
       let totalLiq = 0;
 
-      for(const wallet of wallets) {
+      for (const wallet of wallets) {
         try {
-          const data = await getAccountInfo(wallet);
-          totalLiq += parseFloat(data.core_liquid_balance);
+          const { core_liquid_balance } = await getAccountInfo(wallet);
+          totalLiq += parseFloat(core_liquid_balance);
         } catch (error) {
           console.error(`Error fetching acc info for ${wallet}: `, error);
         }
       }
 
       setTotalLiquid(totalLiq);
+      setLoading(false);
     };
+
     fetchTotalLiquid();
   }, [wallets]);
-
-
 
   return (
     <div>
@@ -35,11 +36,14 @@ const WalletContainer = () => {
         ))}
       </div>
       <div id="wallet-total">
-        <p>Total Liquid: {totalLiquid.toFixed(1)} $Wax</p>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <p>Total Liquid: {totalLiquid.toFixed(0)} $Wax</p>
+        )}
       </div>
     </div>
   );
 };
-
 
 export default WalletContainer;
