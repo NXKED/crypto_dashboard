@@ -142,6 +142,48 @@ button {
   color: rgba(255, 255, 255, 0.698);
 }
 
+.receivable-transactions {
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  max-width: 370px;
+  margin: 50px 0px;
+  
+}
+
+.receivable-transactions ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  margin: 0px;
+
+}
+
+.receivable-transactions h2 {
+  margin: 10px;
+}
+.receivable-transactions p {
+  font-size: 1rem;
+  margin: 5px;
+}
+
+.receivable-transactions .list-items {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.receivable-transactions .link {
+  color: gray;
+  text-decoration:none;
+  cursor: pointer;
+}
+
+.receivable-transactions .link:hover {
+  color: steelblue;
+}
+
 #bar-top {
   color: white;
   font-family: "Poppins", sans-serif;

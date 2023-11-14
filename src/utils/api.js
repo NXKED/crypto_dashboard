@@ -1,4 +1,4 @@
-import { BLOCKCHAIN } from '../const';
+import { BLOCKCHAIN, BANANO } from '../const';
 
 
 export const getAccountInfo = async (accountName) => {

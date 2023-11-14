@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import './style.css';
 import CryptoPrice from './components/Blockchain';
 import WalletContainer from './components/WalletContainer';
+import ReceivableTransactions from './components/ReceivableTransactions';
 
 const App = () => {
   const [accountName, setAccountName] = useState('');
@@ -44,6 +45,7 @@ const App = () => {
           placeholder="Enter Wallet"
         />
       </div>
+      <ReceivableTransactions />
     </div>
   );
 };
