@@ -38,13 +38,15 @@ const App = () => {
     <div>
       <CryptoPrice />
       <WalletContainer />
-      <WalletInfo accountName={accountName} />
-      <div id="walletSearch">
-        <input
-          id="walletInput"
-          placeholder="Enter Wallet"
-        />
-      </div>
+      <div id="walletSearchContainer">
+        <WalletInfo accountName={accountName} />
+        <div id="walletSearch">
+          <input
+            id="walletInput"
+            placeholder="Enter Wallet"
+          />
+        </div>
+        </div>
       <ReceivableTransactions />
     </div>
   );

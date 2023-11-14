@@ -60,6 +60,11 @@ button {
   }
 }
 
+#walletSearchContainer {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 #walletInput {
   background-color: transparent;
   border: 1px solid gray;
@@ -198,14 +203,14 @@ button {
 footer {
   color: white;
   font-family: 'Kdam Thmor Pro', sans-serif;
-  font-size: 1.5em;
-  line-height: 15px;
+  font-size: 2em;
+  line-height: 20px;
   position: fixed;
   bottom: 0;
   display: flex;
   flex-flow: row;
   background-color: #8e80807c;
-  box-shadow: 0 0 5px 0 gray;
+  box-shadow: 0 0 5px 0 rgb(128, 128, 128);
   width: 100%;
   justify-content: space-between;
 }
@@ -214,6 +219,7 @@ footer {
   display: flex;
   justify-content: center;
   color: white;
+  -webkit-text-stroke: 1px rgba(120, 84, 69, 0.524);
 }
 
 
