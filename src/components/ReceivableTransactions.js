@@ -22,10 +22,11 @@ const ReceivableTransactions = () => {
         }
 
         const transactionData = response.data;
+        const sortedTransactions = response.data.slice().sort((a, b) => b.timestamp - a.timestamp);
         const sumBanReceived = transactionData.reduce((acc, transaction) => acc + transaction.amount, 0);
         setTotalAmount(sumBanReceived);
 
-        setTransactions(response.data);
+        setTransactions(sortedTransactions);
       } catch (error) {
         console.error('Error fetching transactions:', error);
       }
