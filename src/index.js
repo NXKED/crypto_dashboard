@@ -5,6 +5,7 @@ import './style.css';
 import CryptoPrice from './components/Blockchain';
 import WalletContainer from './components/WalletContainer';
 import ReceivableTransactions from './components/ReceivableTransactions';
+import BanStats from './components/BanStats';
 
 const App = () => {
   const [accountName, setAccountName] = useState('');
@@ -47,7 +48,10 @@ const App = () => {
           />
         </div>
         </div>
+        <div id="bananoContainer">
       <ReceivableTransactions />
+      <BanStats />
+      </div>
     </div>
   );
 };

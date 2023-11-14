@@ -147,16 +147,16 @@ button {
   color: rgba(255, 255, 255, 0.698);
 }
 
-.receivable-transactions {
+.receivable-transactions, .banano-funds {
   color: white;
   border: 2px solid white;
   border-radius: 8px;
   max-width: 370px;
-  margin: 50px 0px;
+  margin: 50px 10px 50px 0;
   
 }
 
-.receivable-transactions ul {
+.receivable-transactions ul, .banano-funds ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -165,18 +165,23 @@ button {
 
 }
 
-.receivable-transactions h2 {
+.receivable-transactions h2, .banano-funds h2 {
   margin: 10px;
 }
-.receivable-transactions p {
+.receivable-transactions p, .banano-funds p {
   font-size: 1rem;
   margin: 5px;
 }
 
-.receivable-transactions .list-items {
+.receivable-transactions .list-items, .banano-funds #stats {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  list-style: none;
+}
+
+.banano-funds .list-items {
+  list-style: none;
 }
 
 .receivable-transactions .link {
@@ -185,8 +190,18 @@ button {
   cursor: pointer;
 }
 
-.receivable-transactions .link:hover {
+.banano-funds .link-yellow {
+  color: yellow;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.receivable-transactions .link:hover, .banano-funds .link-yellow:hover {
   color: steelblue;
+}
+
+#bananoContainer {
+  display: flex;
 }
 
 #bar-top {
