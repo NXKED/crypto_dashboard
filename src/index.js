@@ -6,6 +6,8 @@ import CryptoPrice from './components/Blockchain';
 import WalletContainer from './components/WalletContainer';
 import ReceivableTransactions from './components/ReceivableTransactions';
 import BanStats from './components/BanStats';
+import Pie from './components/Pie';
+import 'chart.js/auto';
 
 const App = () => {
   const [accountName, setAccountName] = useState('');
@@ -51,6 +53,7 @@ const App = () => {
         <div id="bananoContainer">
       <ReceivableTransactions />
       <BanStats />
+      <Pie />
       </div>
     </div>
   );

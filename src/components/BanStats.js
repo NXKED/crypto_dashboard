@@ -54,3 +54,5 @@ const BanStats = () => {
 };
 
 export default BanStats;
+
+//TODO pie chart for funds? Save Session - settings input (ban,wax wallets, cryptos) + code for predef. values. Nightmode || color picker
