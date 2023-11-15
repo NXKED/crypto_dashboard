@@ -54,7 +54,7 @@ const CryptoPrice = () => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 3*60*1000);
+    }, 3 * 60 * 1000);
 
     return () => clearInterval(interval);
   }, []);

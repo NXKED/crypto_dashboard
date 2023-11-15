@@ -186,6 +186,12 @@ button {
   list-style: none;
 }
 
+.vote-date.important {
+  color: white;
+  -webkit-text-stroke: 0.1px rgba(255, 255, 255, 0.524);
+
+}
+
 .banano-funds .list-items {
   list-style: none;
 }
