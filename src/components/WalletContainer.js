@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import WalletInfo from "./WalletInfo";
 import { getAccountInfo } from "../utils/api";
 import { initialWallets } from "../const";
+import VoteDate from "./VoteDate";
 
 const WalletContainer = () => {
   const [wallets, setWallets] = useState(initialWallets);
@@ -39,7 +40,10 @@ const WalletContainer = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
+          <div>
           <p>Total Liquid: {totalLiquid.toFixed(0)} $Wax</p>
+          <VoteDate />
+          </div>
         )}
       </div>
     </div>

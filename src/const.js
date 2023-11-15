@@ -77,4 +77,5 @@ export const TESTNET_AUTHENTICATORS = [
 export const BLOCKCHAIN = { ...MAINNET };
 export const coins = ['bitcoin', 'solana', 'bitcoin-cash', 'wax', 'banano'];
 export const initialWallets = ["p2wti.wam", "t.keg.wam", "nicotinamide", "bananamonkey", "plsdontrugme"];
+export const myWallet = ["p2wti.wam"];
 export const BANWALLET = ["ban_1igof5isd3xxn7yen8owx1m9cje68mt3n3cpyp8kqkzkcr5x6hwcxwy1pzmq"];

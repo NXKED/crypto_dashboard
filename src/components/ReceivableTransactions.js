@@ -50,18 +50,18 @@ const ReceivableTransactions = () => {
       {transactions ? (
         <div>
           <h2>Receivable Transactions</h2>
-          <p>Total Pending Amount: {totalAmount} BAN</p>
+          <p>Total Pending Amount: {totalAmount.toFixed(0)} BAN</p>
           <ul>
             {transactions.map((transaction) => (
               <li key={transaction.hash} className="list-items">
-                <div>{`${transaction.amount} BAN `}
+                <div>{`${transaction.amount.toFixed(0)} BAN `}
                   <span style={{ color: 'orange' }}>{getSender(transaction.address)}</span>
                 </div>
                 <div>
                   <a href={`https://example.com/transactions/${transaction.hash}`} target="_blank" rel="noopener noreferrer" className='link'>
-                  {new Date(transaction.timestamp * 1000).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit' })}
+                  {new Date(transaction.timestamp * 1000).toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' })}
                   {', '}
-                  {new Date(transaction.timestamp * 1000).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
+                  {new Date(transaction.timestamp * 1000).toLocaleTimeString('de-DE', { hour: 'numeric', minute: 'numeric', hour12: true })}
                   </a>
                 </div>
             </li>

@@ -104,6 +104,12 @@ button {
   background: linear-gradient(to bottom, #ff6a00, #ff2200);
   text-align: center;
   border-radius:8px;
+  display: flex;
+  flex-direction: column;
+}
+
+#wallet-total p {
+  margin: 0;
 }
 
 
