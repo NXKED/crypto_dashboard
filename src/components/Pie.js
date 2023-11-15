@@ -60,9 +60,9 @@ const Pie = () => {
   }, []);
 
   return (
-    <div>
+    <div className="banano-funds">
       {funds ? (
-        <div className="banano-funds">
+        <div>
           <h2>Banano Pie</h2>
           <p>Estimated 25 million distributed BAN a month</p>
           <ul>
@@ -73,7 +73,7 @@ const Pie = () => {
           </ul>
         </div>
       ) : (
-        <p>Loading Ban Stats...</p>
+        <p>Eating cake...</p>
       )}
     </div>
   );

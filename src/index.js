@@ -49,11 +49,11 @@ const App = () => {
             placeholder="Enter Wallet"
           />
         </div>
-        </div>
-        <div id="bananoContainer">
-      <ReceivableTransactions />
-      <BanStats />
-      <Pie />
+      </div>
+      <div id="bananoContainer">
+          <ReceivableTransactions />
+          <BanStats />
+          <Pie />
       </div>
     </div>
   );

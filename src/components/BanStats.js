@@ -29,10 +29,10 @@ const BanStats = () => {
   }, []);
 
   return (
-    <div>
+    <div className="banano-funds">
       {funds ? (
-        <div className="banano-funds">
-          <h2>Banano Fun(ds)-Stats</h2>
+        <div>
+          <h2>Banano Fun(d)-Stats</h2>
           <p>Estimated 25million distributed BAN a month</p>
           <ul>
               <li className="list-items">
@@ -42,8 +42,9 @@ const BanStats = () => {
                 <div><a href={`https://creeper.banano.cc/network`} target="_blank" rel="noopener noreferrer" className='link-yellow'>{`${(parseFloat(funds.devFundPercent) * 100).toFixed(2)}%`}</a></div>
                 <div id="stats">{`Estimated Time Left:`}</div>
                 <div><a href={`https://creeper.banano.cc/network`} target="_blank" rel="noopener noreferrer" className='link-yellow'>{`${(funds.devFundAmount / 25000000).toFixed(2)} months`}</a></div>
-                
-            </li>
+                <div id="stats">{`Estimated Date:`}</div>
+                <div><a href={`https://creeper.banano.cc/network`} target="_blank" rel="noopener noreferrer" className='link-yellow'> {new Date(new Date().setMonth(new Date().getMonth() + (funds.devFundAmount / 25000000))).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}</a></div>
+              </li>
           </ul>
         </div>
       ) : (

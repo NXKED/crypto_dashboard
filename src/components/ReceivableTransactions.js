@@ -46,9 +46,9 @@ const ReceivableTransactions = () => {
   };
 
   return (
-    <div>
+    <div className="receivable-transactions">
       {transactions ? (
-        <div className="receivable-transactions">
+        <div>
           <h2>Receivable Transactions</h2>
           <p>Total Pending Amount: {totalAmount} BAN</p>
           <ul>
