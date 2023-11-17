@@ -8,6 +8,7 @@ import ReceivableTransactions from './components/ReceivableTransactions';
 import BanStats from './components/BanStats';
 import Pie from './components/Pie';
 import 'chart.js/auto';
+import GetBoomPowTx from './components/BoomPow';
 
 const App = () => {
   const [accountName, setAccountName] = useState('');
@@ -54,6 +55,9 @@ const App = () => {
           <ReceivableTransactions />
           <BanStats />
           <Pie />
+      </div>
+      <div id="boomPowChart">
+        <GetBoomPowTx />
       </div>
     </div>
   );

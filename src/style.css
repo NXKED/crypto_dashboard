@@ -217,6 +217,10 @@ button {
   justify-content: space-between;
 }
 
+#boomPowChart {
+  color: white;
+}
+
 #bar-top {
   color: white;
   font-family: "Poppins", sans-serif;
