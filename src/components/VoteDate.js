@@ -43,7 +43,7 @@ const VoteDate = () => {
         {latestVoteDate !== null ? (
           <p>Latest Vote on: {latestVoteDate}</p>
         ) : (
-          <p>Loading vote date (or api ded)...</p>
+          <p>Probably api timeout...</p>
         )}
       </div>
 
