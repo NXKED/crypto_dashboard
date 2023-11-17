@@ -7,7 +7,7 @@ const MAINNET = {
   API_ENDPOINT: "wax.eosphere.io",
   ATOMIC_ENDPOINT: "wax-atomic-api.eosphere.io",
   AUTHENTICATORS: [],
-  API_BASE_URL: "http://wax.cryptolions.io/v1/chain",
+  API_BASE_URL: "https://wax.cryptolions.io/v1/chain",
 };
 
 export const BANANO = {
