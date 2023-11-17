@@ -5,6 +5,7 @@ import { BANWALLET } from '../const';
 const BanStats = () => {
   const [funds, setFunds] = useState(null);
   const [totalAmount, setTotalAmount] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchFunds = async () => {
@@ -19,9 +20,11 @@ const BanStats = () => {
         
         const fundsData = response.data;
         setFunds(fundsData);
+        setLoading(false);
         
       } catch (error) {
         console.error('Error fetching funds:', error);
+        setLoading(false);
       }
     };
 
@@ -30,7 +33,9 @@ const BanStats = () => {
 
   return (
     <div className="banano-funds">
-      {funds ? (
+      {loading ? (
+        <p>Loading Ban Stats...</p>
+      ) : funds ? (
         <div>
           <h2>Banano Fun(d)-Stats</h2>
           <p>Estimated 25million distributed BAN a month</p>
@@ -48,7 +53,7 @@ const BanStats = () => {
           </ul>
         </div>
       ) : (
-        <p>Loading Ban Stats...</p>
+        <p>Error fetching ban stats.</p>
       )}
     </div>
   );
