@@ -4,7 +4,8 @@ import { BANWALLET } from '../const';
 
 const BanStats = () => {
   const [funds, setFunds] = useState(null);
-  const [totalAmount, setTotalAmount] = useState(null);
+  const [amountTop, setAmountTop] = useState(null);
+  const [topX, setTopX] = useState(100);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,12 +14,22 @@ const BanStats = () => {
         const response = await axios.get(
           'https://api.spyglass.pw/banano/v1/distribution/supply');
 
-        if (!response.data) {
+        const responseTwo = await axios.post(
+          'https://api.spyglass.pw/banano/v1/distribution/rich-list',
+          {
+            offset: topX.toString(),
+            size: '1',
+          }
+        );
+
+        if (!response.data && !responseTwo.data) {
           console.error('No data in the response.');
           return;
         }
         
+        const topData = responseTwo.data;
         const fundsData = response.data;
+        setAmountTop(topData[0]);
         setFunds(fundsData);
         setLoading(false);
         
@@ -29,7 +40,11 @@ const BanStats = () => {
     };
 
     fetchFunds();
-  }, []);
+  }, [topX]);
+
+  const handleOffsetChange = (newOffset) => {
+    setTopX(newOffset);
+  };
 
   return (
     <div className="banano-funds">
@@ -49,6 +64,12 @@ const BanStats = () => {
                 <div><a href={`https://creeper.banano.cc/network`} target="_blank" rel="noopener noreferrer" className='link-yellow'>{`${(funds.devFundAmount / 25000000).toFixed(2)} months`}</a></div>
                 <div id="stats">{`Estimated Date:`}</div>
                 <div><a href={`https://creeper.banano.cc/network`} target="_blank" rel="noopener noreferrer" className='link-yellow'> {new Date(new Date().setMonth(new Date().getMonth() + (funds.devFundAmount / 25000000))).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}</a></div>
+                <div id="stats">{`To be a Top ${topX} holder:`}</div>
+                <button id ="topXButton" onClick={() => handleOffsetChange(100)}>100</button>
+                <button id ="topXButton" onClick={() => handleOffsetChange(250)}>250</button>
+                <button id ="topXButton" onClick={() => handleOffsetChange(1000)}>1k</button>
+                <button id ="topXButton" onClick={() => handleOffsetChange(10000)}>10k</button>
+                <div><a href={`https://creeper.banano.cc/wallets`} target="_blank" rel="noopener noreferrer" className='link-yellow'>{`${(amountTop.amount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')} Banano`}</a></div>
               </li>
           </ul>
         </div>

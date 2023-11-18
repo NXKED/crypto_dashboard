@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { BANWALLET } from '../const';
+import { BanStats } from './BanStats';
 
 const Pie = () => {
   const [funds, setFunds] = useState(null);
@@ -64,7 +65,7 @@ const Pie = () => {
       {funds ? (
         <div>
           <h2>Banano Pie</h2>
-          <p>Estimated 25 million distributed BAN a month</p>
+          <p>{`${(parseFloat(funds.devFundPercent) * 100).toFixed(3)} % distribution left`}</p>
           <ul>
             <li className="list-items">
               <div id="stats">{`Distribution Fund:`}</div>
