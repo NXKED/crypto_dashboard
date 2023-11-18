@@ -67,9 +67,10 @@ const Pie = () => {
           <h2>Banano Pie</h2>
           <p>{`${(parseFloat(funds.devFundPercent) * 100).toFixed(3)} % distribution left`}</p>
           <ul>
-            <li className="list-items">
+            <li className="list-items2">
               <div id="stats">{`Distribution Fund:`}</div>
-              <Doughnut data={data} />
+              <div id="donut">
+              <Doughnut data={data} /></div>
             </li>
           </ul>
         </div>

@@ -79,7 +79,7 @@ const ReceivableTransactions = () => {
                 </div>
                 <div>
                   <a
-                    href={`https://example.com/transactions/${transaction.hash}`}
+                    href={`https://creeper.banano.cc/hash/${transaction.hash}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="link"

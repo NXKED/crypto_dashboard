@@ -24,7 +24,7 @@ const WalletInfo = ({ accountName }) => {
     <div className="wallet-info">
       {accountData ? (
         <div>
-          <p>Account: {accountData.account_name}</p>
+          <p>Acc: {accountData.account_name}</p>
           <br />
           <p>Liquid Wax: <span style={{ fontWeight: 'bold' }}>{parseFloat(accountData.core_liquid_balance).toFixed(2)}</span></p>
           <p>CPU Usage: <span style={{ fontWeight: 'bold' }}>{((accountData.cpu_limit.used / accountData.cpu_limit.max) * 100).toFixed(2)}%</span></p>

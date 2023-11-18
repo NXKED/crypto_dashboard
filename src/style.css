@@ -292,3 +292,94 @@ font-weight: bold;
     margin: 0 auto;
   }
 }
+
+@media screen and (max-width: 300px) {
+  body, footer {
+    display: block;
+    min-width: 376px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen
+  and (min-device-width: 280px)
+  and (max-width: 768px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  
+    h1 {
+      color: #ffffff;
+      font-family: 'Kdam Thmor Pro', sans-serif;
+      font-weight: bold;
+      font-size: 2em;
+      margin-bottom: 0.2em;
+    }
+    #wallet-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 10px 5px;
+    }
+    .wallet-info {
+      border: 2px solid #ccc;
+      padding: 2px;
+      border-radius: 8px;
+      margin: 0;
+      background-color: #8e80807f;
+      max-width: 120px;
+      max-height: auto;
+    }
+    .info-item {
+      margin-bottom: 8px;
+    }
+    
+    .wallet-info p {
+      margin: 1px;
+      color: rgba(255, 255, 255, 0.698);
+      font-size: 0.7em;
+    }
+
+    #wallet-total {
+      margin: 10px 5px;
+    }
+    
+    #wallet-total p {
+      margin: 0;
+      font-size: 0.8em;
+    }
+    .crypto-price {
+      font-size: 0.6em;
+      align-items: center;
+    }
+    .crypto-price p {
+      justify-content: center;
+      
+    }
+    #walletSearch {
+      align-items: center;
+    }
+    #bananoContainer {
+      display: flex;
+      flex-direction: column;
+      width: auto;
+      align-items: center;
+    }
+    footer {
+      font-size: 1em;
+    }
+    .boompow-transactions {
+      margin: 2em 1em;
+    }
+    
+    .banano-funds, .receivable-transactions {
+      width: 100%;
+      margin: 20px 0;
+    }
+    #bar-top {
+      margin-bottom:1.5em;
+
+    }
+    .banano-funds ul .list-items2 {
+      display: flex;
+      align-items: center;
+    }
+}
