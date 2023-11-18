@@ -36,10 +36,10 @@ const VoteDate = () => {
       fetchData();
     }, []);
 
-    const moreThanTwoWeeks = latestVoteDate && new Date(latestVoteDate) < new Date(Date.now() - 14 * 24 * 60 * 60 * 1000);
+    const moreThanOneWeek = latestVoteDate && new Date(latestVoteDate) < new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 
     return (
-      <div className={`vote-date ${moreThanTwoWeeks ? 'important' : ''}`}>
+      <div className={`vote-date ${moreThanOneWeek ? 'important' : ''}`}>
         {latestVoteDate !== null ? (
           <p>Latest Vote on: {latestVoteDate}</p>
         ) : (
