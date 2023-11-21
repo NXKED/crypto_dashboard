@@ -43,7 +43,9 @@ const BanStats = () => {
   }, [topX]);
 
   const handleOffsetChange = (newOffset) => {
+    console.log("handleOffsetChange");
     setTopX(newOffset);
+    setLoading(true);
   };
 
   return (
