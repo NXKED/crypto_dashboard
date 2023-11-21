@@ -217,12 +217,12 @@ button {
   justify-content: space-between;
 }
 
-#topXButton {
+.topXButton {
   padding: 1.5px 2px;
   margin: 0.5px 2px;
   border: 1px solid yellow;
 }
-#topXButton:hover {
+.topXButton:hover {
   background-color:yellow;
   color: black;
 }
