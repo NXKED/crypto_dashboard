@@ -18,7 +18,7 @@ const GetBoomPowTx = () => {
             filterAddresses: [BANWALLET[0]],
             includeChange: false,
             includeReceive: false,
-            size: "25",
+            size: "50",
           }
         );
 
