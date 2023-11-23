@@ -54,7 +54,7 @@ const BanStats = () => {
         <p>Loading Ban Stats...</p>
       ) : funds ? (
         <div>
-          <h2>Banano Fun(d)-Stats</h2>
+          <h2>Banano Fund-Stats</h2>
           <p>Estimated 25million distributed BAN a month</p>
           <ul>
             <li className="list-items">
