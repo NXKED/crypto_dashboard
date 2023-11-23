@@ -101,7 +101,7 @@ button {
 
 #wallet-total {
   font-weight: bold;
-  background: linear-gradient(to bottom, #ff6a00, #ff2200);
+  background: linear-gradient(to bottom, #ff6a00a3, #ff220099);
   text-align: center;
   border-radius:8px;
   display: flex;
@@ -110,6 +110,7 @@ button {
 
 #wallet-total p {
   margin: 0;
+  color: rgba(255, 255, 255, 0.787);
 }
 
 
@@ -159,7 +160,7 @@ button {
   border-radius: 8px;
   max-width: 370px;
   margin: 50px 10px 50px 0;
-  
+  background-color: #8e80802b;
 }
 
 .receivable-transactions ul, .banano-funds ul {
@@ -168,7 +169,6 @@ button {
   align-items: flex-start;
   padding: 5px;
   margin: 0px;
-
 }
 
 .receivable-transactions h2, .banano-funds h2 {
@@ -186,9 +186,8 @@ button {
   list-style: none;
 }
 
-.vote-date.important {
-  color: white;
-  -webkit-text-stroke: 0.1px rgba(255, 255, 255, 0.524);
+.vote-date.important p {
+  -webkit-text-stroke: 0.05px rgba(255, 0, 0, 0.979);
 
 }
 

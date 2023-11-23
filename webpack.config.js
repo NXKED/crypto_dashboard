@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
@@ -22,7 +21,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
-      }
+      },
     ],
   },
   resolve: {
@@ -49,9 +48,8 @@ module.exports = {
     open: true,
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname,"index.html"),
+      template: path.resolve(__dirname, "index.html"),
     }),
     new webpack.DefinePlugin({
       "process.env": {

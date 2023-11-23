@@ -6,6 +6,14 @@ import { myWallet } from '../const';
 const VoteDate = () => {
   const [latestVoteDate, setLatestVoteDate] = useState(null);
 
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString('de-DE', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+  };
+
   useEffect(() => {
 
     const fetchData = async () => {
@@ -20,11 +28,7 @@ const VoteDate = () => {
           return action.timestamp > latest.timestamp ? action : latest;
         }, simpleActions[0]);
 
-        const formattedDate = new Date(latestAction.timestamp).toLocaleDateString('de-DE', {
-          day: '2-digit',
-          month: '2-digit',
-          year: 'numeric',
-        });
+        const formattedDate = formatDate(latestAction.timestamp);
 
         setLatestVoteDate(formattedDate);
 
@@ -36,10 +40,10 @@ const VoteDate = () => {
       fetchData();
     }, []);
 
-    const moreThanOneWeek = latestVoteDate && new Date(latestVoteDate) < new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const moreThanFiveDays = latestVoteDate && latestVoteDate < formatDate(new Date(Date.now() - 5 * 24 * 60 * 60 * 1000));
 
     return (
-      <div className={`vote-date ${moreThanOneWeek ? 'important' : ''}`}>
+      <div className={`vote-date ${moreThanFiveDays ? 'important' : ''}`}>
         {latestVoteDate !== null ? (
           <p>Latest Vote on: {latestVoteDate}</p>
         ) : (
