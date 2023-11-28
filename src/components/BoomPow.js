@@ -5,6 +5,7 @@ import { Line } from 'react-chartjs-2';
 
 const GetBoomPowTx = () => {
   const [transactions, setTransactions] = useState(null);
+  const [slotTransactions, setSlotTransactions] = useState(null);
   const [totalAmount, setTotalAmount] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -21,16 +22,28 @@ const GetBoomPowTx = () => {
             size: "50",
           }
         );
+        const response2 = await axios.post(
+          'https://api.spyglass.pw/banano/v2/account/confirmed-transactions',
+          {
+            address: 'ban_1s1hot8adygxuj96f35dicnmd47cctazoaiia9uduk731nqt6fuenfax9ckt',
+            filterAddresses: [BANWALLET[0]],
+            includeChange: false,
+            includeReceive: false,
+            size: "50",
+          }
+        );
 
-        if (!response.data) {
+        if (!response.data || !response2.data) {
           console.error('No data in the response.');
           return;
         }
 
         const powData = response.data;
-
+        const slotData = response2.data;
         const sortedTransactions = powData.slice().sort((a, b) => a.timestamp - b.timestamp);
+        const sortedTransactionsSlots = slotData.slice().sort((a, b) => a.timestamp - b.timestamp);
 
+        setSlotTransactions(sortedTransactionsSlots);
         setTransactions(sortedTransactions);
         setLoading(false);
 
@@ -44,16 +57,23 @@ const GetBoomPowTx = () => {
   }, []);
 
   const receivedBPBan = transactions ? transactions.map(transaction => transaction.amount?.toFixed(0)) : [];
+  const receivedSlotBan = slotTransactions ? slotTransactions.map(slotTransaction => slotTransaction.amount?.toFixed(0)) : [];
 
   const chartData = {
     labels: receivedBPBan.map((_, index) => index + 1),
     datasets: [
       {
-        label: 'BAN',
+        label: 'BoomPow',
         data: receivedBPBan,
         fill: true,
         borderColor: 'yellow',
       },
+      {
+        label: 'SLOTS',
+        data: receivedSlotBan,
+        fill: true,
+        borderColor: 'green',
+      }
     ],
   };
 
