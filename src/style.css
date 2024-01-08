@@ -1,6 +1,6 @@
 body {
 font-family: 'Kdam Thmor Pro', sans-serif;
-  background: linear-gradient(to bottom,#5e0101,#1e0000);
+  background: linear-gradient(to bottom,#4b0000,#070000);
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
@@ -110,7 +110,7 @@ button {
 
 #wallet-total {
   font-weight: bold;
-  background: linear-gradient(to bottom, #ff6a00a3, #ff220099);
+  background: linear-gradient(to bottom, #c15101a3, #a6170099);
   text-align: center;
   border-radius:8px;
   display: flex;
