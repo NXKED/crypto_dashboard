@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Import axios library
-import { BANWALLET } from "../const";
+//import { banWallet } from "../index"
 
-const ReceivableTransactions = () => {
+const ReceivableTransactions = ({ banWallet }) => {
   const [transactions, setTransactions] = useState(null);
   const [totalAmount, setTotalAmount] = useState(null);
   const [BPbalance, setBPbalance] = useState(null);
   const [PWbalance, setPWbalance] = useState(null);
+
+  if(!banWallet) {
+    return null;
+  }
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -14,7 +18,7 @@ const ReceivableTransactions = () => {
         const response = await axios.post(
           "https://api.spyglass.pw/banano/v1/account/receivable-transactions",
           {
-            address: BANWALLET[0],
+            address: banWallet,
           }
         );
 
@@ -78,7 +82,7 @@ const ReceivableTransactions = () => {
 
   return (
     <div className="receivable-transactions">
-      {transactions ? (
+      {transactions && !banWallet ? (
         <div>
           <h2>Receivable Transactions </h2>
           <p>Total Pending Amount: {totalAmount.toFixed(0)} BAN</p>
