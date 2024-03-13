@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';  // Import axios library
-import { BANWALLET } from '../const';
+import { BANWALLET, BOOMPOW, SLOTS } from '../const';
 import { Line } from 'react-chartjs-2';
 
 const GetBoomPowTx = () => {
@@ -8,6 +8,8 @@ const GetBoomPowTx = () => {
   const [slotTransactions, setSlotTransactions] = useState(null);
   const [totalAmount, setTotalAmount] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [totalSlot, setTotalSlot] = useState(null);
+  const [totalBoom, setTotalBoom] = useState(null);
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -33,7 +35,27 @@ const GetBoomPowTx = () => {
           }
         );
 
-        if (!response.data || !response2.data) {
+        const response3 = await axios.post(
+          'https://api.spyglass.pw/banano/v2/account/confirmed-transactions',
+          {
+            address: 'ban_1igof5isd3xxn7yen8owx1m9cje68mt3n3cpyp8kqkzkcr5x6hwcxwy1pzmq',
+            filterAddresses: [SLOTS[0]],
+            includeChange: false,
+            size: "2000",
+          }
+        );
+
+        const response4 = await axios.post(
+          'https://api.spyglass.pw/banano/v2/account/confirmed-transactions',
+          {
+            address: 'ban_1igof5isd3xxn7yen8owx1m9cje68mt3n3cpyp8kqkzkcr5x6hwcxwy1pzmq',
+            filterAddresses: [BOOMPOW[0]],
+            includeChange: false,
+            size: "2000",
+          }
+        );
+
+        if (!response.data || !response2.data || !response3.data || !response4.data) {
           console.error('No data in the response.');
           return;
         }
@@ -42,7 +64,22 @@ const GetBoomPowTx = () => {
         const slotData = response2.data;
         const sortedTransactions = powData.slice().sort((a, b) => a.timestamp - b.timestamp);
         const sortedTransactionsSlots = slotData.slice().sort((a, b) => a.timestamp - b.timestamp);
+        
+        const sR = response3.data;
+        const totalReceivedSlot = sR.reduce(
+          (acc, transaction) => acc + transaction.amount,
+          0
+        );
 
+        const sP = response4.data;
+        const totalReceivedBoomPow = sP.reduce(
+          (acc, transaction) => acc + transaction.amount,
+          0
+        );
+
+        console.log("Slots Received:", totalReceivedSlot);
+        setTotalSlot(totalReceivedSlot);
+        setTotalBoom(totalReceivedBoomPow);
         setSlotTransactions(sortedTransactionsSlots);
         setTransactions(sortedTransactions);
         setLoading(false);
@@ -83,8 +120,9 @@ const GetBoomPowTx = () => {
         <p>Loading BoomPow transactions...</p>
       ) : (
         <div>
-          <h2>BoomPow Transactions</h2>
-          <p>Total Received Amount: BAN</p>
+          <h2>BoomPow & Slot Transactions</h2>
+          <p>Total Slots: {totalSlot.toFixed(0)}</p>
+          <p>Total BP: {totalBoom.toFixed(0)}</p>
           {receivedBPBan.length > 0 ? (
             <Line data={chartData} />
           ) : (
