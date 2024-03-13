@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import WalletInfo from "./components/WalletInfo";
 import ReactDOM from "react-dom";
 import "./style.css";
-import CryptoPrice from "./components/Blockchain";
-import WalletContainer from "./components/WalletContainer";
 import ReceivableTransactions from "./components/ReceivableTransactions";
 import BanStats from "./components/BanStats";
 import Pie from "./components/Pie";
@@ -12,11 +9,11 @@ import GetBoomPowTx from "./components/BoomPow";
 import dashImage from "./images/dash5.png";
 
 const App = () => {
-  const [accountName, setAccountName] = useState("");
+  const [banWallet, setBanWallet] = useState(null);
 
-  const handleUpdatedAccountName = (newAccountName) => {
-    console.log("Handling react updated account name:", newAccountName);
-    setAccountName(newAccountName);
+  const handleUpdatedWallet = (newWallet) => {
+    console.log("Handling updated name to:", newWallet);
+    setBanWallet(newWallet);
   };
 
   useEffect(() => {
@@ -24,11 +21,10 @@ const App = () => {
 
     const handleInputChange = function (event) {
       const inputValue = event.target.value;
-      console.log("React Input value changed:", inputValue);
+      console.log("Input value changed: ", inputValue);
 
-      // only call if greater than 8 chars (for wax wallets xxxxx.wam)
-      if (inputValue.length > 8) {
-        handleUpdatedAccountName(inputValue);
+      if(inputValue.length > 15) {
+        handleUpdatedWallet(inputValue);
       }
     };
 
@@ -44,22 +40,21 @@ const App = () => {
       <div className="dashImg">
         <img src={dashImage} alt={dashImage} />
       </div>
-      <CryptoPrice />
-      <WalletContainer />
-      <div id="walletSearchContainer">
-        <WalletInfo accountName={accountName} />
-        <div id="walletSearch">
-          <input id="walletInput" placeholder="Enter Wallet" />
-        </div>
+      <div id="walletSearch">
+        <input id="walletInput" placeholder="Enter Wallet" />
       </div>
-      <div id="bananoContainer">
-        <ReceivableTransactions />
-        <BanStats />
-        <Pie />
-      </div>
-      <div id="boomPowChart">
-        <GetBoomPowTx />
-      </div>
+      {banWallet && (
+        <>
+          <div id="boomPowChart">
+            <GetBoomPowTx banWallet={banWallet} />
+          </div>
+          <div id="bananoContainer">
+            <ReceivableTransactions banWallet={banWallet}/>
+            <BanStats banWallet={banWallet} />
+            <Pie banWallet={banWallet} />
+          </div>
+        </>
+      )}
     </div>
   );
 };
