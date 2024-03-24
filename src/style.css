@@ -242,6 +242,28 @@ button {
   margin-bottom: 3em;
 }
 
+.slotDist {
+  color: white;
+  size: 0.4em;
+  text-decoration: none;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+
+}
+
+.slotDist ul li {
+  color: white;
+  size: 0.4em;
+}
+
+.slotDist h2 {
+  color: yellow;
+}
+
+.slotDist h1 {
+  size: 1em;
+}
+
 #bar-top {
   color: white;
   font-family: "Poppins", sans-serif;

@@ -87,3 +87,7 @@ export const myWallet = ["p2wti.wam"];
 export const BANWALLET = [
   "ban_1igof5isd3xxn7yen8owx1m9cje68mt3n3cpyp8kqkzkcr5x6hwcxwy1pzmq",
 ];
+
+export const SLOTS = [
+  "ban_1s1hot8adygxuj96f35dicnmd47cctazoaiia9uduk731nqt6fuenfax9ckt",
+];
