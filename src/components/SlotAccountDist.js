@@ -1,43 +1,59 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Import axios library
-import { BANWALLET, BOOMPOW, SLOTS } from "../const";
+import { SLOTS } from "../const";
 
 const GetSlotsDist = () => {
   const [accounts, setAccounts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [txDate, setTxDate] = useState(null);
+  const maxRecords = 1500; // Maximum number of tx to fetch
+  let totalRecords = 0;
 
   useEffect(() => {
     const fetchTopAddresses = async () => {
       try {
-        const response = await axios.post(
-          "https://api.spyglass.pw/banano/v2/account/confirmed-transactions",
-          {
-            address:
-              "ban_1s1hot8adygxuj96f35dicnmd47cctazoaiia9uduk731nqt6fuenfax9ckt",
-            includeChange: false,
-            includeReceive: false,
-            minAmount: "1",
-            size: "500",
+        const batchSize = 500;
+        let offset = 0;
+        let allAddresses = [];
+
+        while (totalRecords < maxRecords) {
+          const response = await axios.post(
+            "https://api.spyglass.eule.wtf/banano/v2/account/confirmed-transactions",
+            {
+              address:
+                "ban_1s1hot8adygxuj96f35dicnmd47cctazoaiia9uduk731nqt6fuenfax9ckt",
+              includeChange: false,
+              includeReceive: false,
+              minAmount: "1",
+              size: batchSize,
+              offset: offset,
+            }
+          );
+
+          if (!response.data) {
+            console.error("No data in the response.");
+            return;
           }
-        );
 
-        console.log("Response data:", response.data);
+          const addresses = response.data;
+          allAddresses = [...allAddresses, ...addresses];
+          totalRecords += addresses.length;
 
-        if (!response.data) {
-          console.error("No data in the response.");
-          return;
+          if (addresses.length < batchSize || totalRecords >= maxRecords) {
+            // If fetched less than batchSize or reached maxRecords, break the loop
+            break;
+          }
+
+          offset += batchSize;
         }
 
-        const addresses = response.data;
-        const lastTransaction = addresses[addresses.length - 1];
+        const lastTransaction = allAddresses[allAddresses.length - 1];
         const lastTransactionTimestamp = lastTransaction.timestamp;
         const lastTransactionDate = new Date(
           lastTransactionTimestamp * 1000
         ).toLocaleDateString();
 
-        // sum of amounts for each address
-        const amountsByAddress = addresses.reduce((acc, curr) => {
+        const amountsByAddress = allAddresses.reduce((acc, curr) => {
           const { address, amount } = curr;
           acc[address] = (acc[address] || 0) + amount;
           return acc;
@@ -50,17 +66,14 @@ const GetSlotsDist = () => {
           })
         );
 
-        // Sort addresses by amount descending
         distSlotAccounts.sort((a, b) => b.amount - a.amount);
 
-        // top 19 addresses
         const top19Addresses = distSlotAccounts.slice(0, 19);
 
-        // each top address and calculate sum
         const promises = top19Addresses.map(async (account) => {
           try {
             const response = await axios.post(
-              "https://api.spyglass.pw/banano/v2/account/confirmed-transactions",
+              "https://api.spyglass.eule.wtf/banano/v2/account/confirmed-transactions",
               {
                 address: account.address,
                 filterAddresses: [SLOTS[0]],
@@ -75,7 +88,6 @@ const GetSlotsDist = () => {
               return { address: account.address, amount: 0 };
             }
 
-            // Calculate sum of amounts for this address
             const sumAmount = response.data.reduce((acc, curr) => {
               return acc + curr.amount;
             }, 0);
@@ -90,12 +102,9 @@ const GetSlotsDist = () => {
           }
         });
 
-        // Wait for promises
         const results = await Promise.all(promises);
 
         results.sort((a, b) => b.amount - a.amount);
-
-        console.log("Top 19 Addresses with sums:", results);
 
         setAccounts(results);
         setLoading(false);
