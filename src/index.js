@@ -10,6 +10,7 @@ import Pie from "./components/Pie";
 import "chart.js/auto";
 import GetBoomPowTx from "./components/BoomPow";
 import dashImage from "./images/dash5.png";
+import GetSlotsDist from "./components/slotAccountDist";
 
 const App = () => {
   const [accountName, setAccountName] = useState("");
@@ -59,6 +60,9 @@ const App = () => {
       </div>
       <div id="boomPowChart">
         <GetBoomPowTx />
+      </div>
+      <div id="slotAccounts">
+        <GetSlotsDist />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 body {
-font-family: 'Kdam Thmor Pro', sans-serif;
-  background: linear-gradient(to bottom,#5e0101,#1e0000);
+  font-family: "Kdam Thmor Pro", sans-serif;
+  background: linear-gradient(to bottom, #4b0000, #070000);
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
@@ -21,7 +21,7 @@ main {
 
 h1 {
   color: #ffffff;
-  font-family: 'Kdam Thmor Pro', sans-serif;
+  font-family: "Kdam Thmor Pro", sans-serif;
   font-weight: bold;
   font-size: 3em;
   margin-bottom: 0.2em;
@@ -43,8 +43,6 @@ h3 {
   */
 }
 
-
-
 button {
   padding: 14px;
   background-color: darkred;
@@ -53,7 +51,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   text-align: center;
-  
+
   &:hover {
     background-color: rgb(60, 2, 2);
     box-shadow: 0 0 5px 0 rgb(255, 255, 255);
@@ -78,7 +76,7 @@ button {
   background-color: transparent;
   border: 1px solid gray;
   border-radius: 8px;
-  font-family: 'Kdam Thmor Pro', sans-serif;
+  font-family: "Kdam Thmor Pro", sans-serif;
   outline: none;
   padding: 10px;
   margin-right: 10px;
@@ -87,7 +85,6 @@ button {
   &:focus {
     box-shadow: 0 0 5px 0 rgb(255, 255, 255);
   }
-
 }
 
 #walletSearch {
@@ -97,7 +94,6 @@ button {
 #wallet-showcase {
   display: flex;
 }
-
 
 .crypto-price {
   font-weight: bold;
@@ -110,9 +106,9 @@ button {
 
 #wallet-total {
   font-weight: bold;
-  background: linear-gradient(to bottom, #ff6a00a3, #ff220099);
+  background: linear-gradient(to bottom, #c15101a3, #a6170099);
   text-align: center;
-  border-radius:8px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
 }
@@ -122,11 +118,9 @@ button {
   color: rgba(255, 255, 255, 0.787);
 }
 
-
-
 .crypto-price::before,
 .crypto-price::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
@@ -163,7 +157,8 @@ button {
   color: rgba(255, 255, 255, 0.698);
 }
 
-.receivable-transactions, .banano-funds {
+.receivable-transactions,
+.banano-funds {
   color: white;
   border: 2px solid white;
   border-radius: 8px;
@@ -172,7 +167,8 @@ button {
   background-color: #8e80802b;
 }
 
-.receivable-transactions ul, .banano-funds ul {
+.receivable-transactions ul,
+.banano-funds ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -180,15 +176,18 @@ button {
   margin: 0px;
 }
 
-.receivable-transactions h2, .banano-funds h2 {
+.receivable-transactions h2,
+.banano-funds h2 {
   margin: 10px;
 }
-.receivable-transactions p, .banano-funds p {
+.receivable-transactions p,
+.banano-funds p {
   font-size: 1rem;
   margin: 5px;
 }
 
-.receivable-transactions .list-items, .banano-funds #stats {
+.receivable-transactions .list-items,
+.banano-funds #stats {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -197,16 +196,16 @@ button {
 
 .vote-date.important p {
   -webkit-text-stroke: 0.05px rgba(255, 0, 0, 0.979);
-
 }
 
-.banano-funds .list-items, .banano-funds .list-items2 {
+.banano-funds .list-items,
+.banano-funds .list-items2 {
   list-style: none;
 }
 
 .receivable-transactions .link {
   color: gray;
-  text-decoration:none;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -216,7 +215,8 @@ button {
   cursor: pointer;
 }
 
-.receivable-transactions .link:hover, .banano-funds .link-yellow:hover {
+.receivable-transactions .link:hover,
+.banano-funds .link-yellow:hover {
   color: steelblue;
 }
 
@@ -231,23 +231,24 @@ button {
   border: 1px solid yellow;
 }
 .topXButton:hover {
-  background-color:yellow;
+  background-color: yellow;
   color: black;
 }
 
-#boomPowChart {
+#boomPowChart, #slotAccounts {
   color: white;
 }
-.boompow-transactions {
+.boompow-transactions, #slotAccounts {
   margin-bottom: 3em;
 }
+
 
 #bar-top {
   color: white;
   font-family: "Poppins", sans-serif;
   font-size: 1.5em;
   line-height: 50px;
-  margin-bottom:3em;
+  margin-bottom: 3em;
   text-shadow: 0 0 15px 0 rgb(17, 58, 205);
   width: 100%;
   text-align: center;
@@ -255,7 +256,7 @@ button {
 
 footer {
   color: white;
-  font-family: 'Kdam Thmor Pro', sans-serif;
+  font-family: "Kdam Thmor Pro", sans-serif;
   font-size: 2em;
   line-height: 20px;
   position: fixed;
@@ -275,18 +276,11 @@ footer {
   -webkit-text-stroke: 1px rgba(120, 84, 69, 0.524);
 }
 
-
-
 .bold-space {
-display: flex;
-justify-content: space-between;
-font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
 }
-
-
-
-
-
 
 /* media screen */
 /*
@@ -295,100 +289,106 @@ font-weight: bold;
 }
 */
 @media screen and (min-width: 1200px) {
-  body, footer {
+  body,
+  footer {
     max-width: 1200px;
     margin: 0 auto;
   }
 }
 
 @media screen and (max-width: 300px) {
-  body, footer {
+  body,
+  footer {
     display: block;
     min-width: 376px;
     margin: 0 auto;
   }
 }
 
-@media only screen
-  and (min-device-width: 280px)
-  and (max-width: 768px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-  
-    h1 {
-      color: #ffffff;
-      font-family: 'Kdam Thmor Pro', sans-serif;
-      font-weight: bold;
-      font-size: 2em;
-      margin-bottom: 0.2em;
-    }
-    #wallet-showcase {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin: 10px 5px;
-    }
-    .wallet-info {
-      border: 2px solid #ccc;
-      padding: 2px;
-      border-radius: 8px;
-      margin: 0;
-      background-color: #8e80807f;
-      max-width: 120px;
-      max-height: auto;
-    }
-    .info-item {
-      margin-bottom: 8px;
-    }
-    
-    .wallet-info p {
-      margin: 1px;
-      color: rgba(255, 255, 255, 0.698);
-      font-size: 0.7em;
-    }
+@media only screen and (min-device-width: 280px) and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  h1 {
+    color: #ffffff;
+    font-family: "Kdam Thmor Pro", sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 0.2em;
+  }
+  #wallet-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 10px 5px;
+  }
+  .wallet-info {
+    border: 2px solid #ccc;
+    padding: 2px;
+    border-radius: 8px;
+    margin: 0;
+    background-color: #8e80807f;
+    max-width: 120px;
+    max-height: auto;
+  }
+  .info-item {
+    margin-bottom: 8px;
+  }
 
-    #wallet-total {
-      margin: 10px 5px;
-    }
-    
-    #wallet-total p {
-      margin: 0;
-      font-size: 0.8em;
-    }
-    .crypto-price {
-      font-size: 0.6em;
-      align-items: center;
-    }
-    .crypto-price p {
-      justify-content: center;
-      
-    }
-    #walletSearch {
-      align-items: center;
-    }
-    #bananoContainer {
-      display: flex;
-      flex-direction: column;
-      width: auto;
-      align-items: center;
-    }
-    footer {
-      font-size: 1em;
-    }
-    .boompow-transactions {
-      margin: 2em 1em;
-    }
-    
-    .banano-funds, .receivable-transactions {
-      width: 100%;
-      margin: 20px 0;
-    }
-    #bar-top {
-      margin-bottom:1.5em;
+  .wallet-info p {
+    margin: 1px;
+    color: rgba(255, 255, 255, 0.698);
+    font-size: 0.7em;
+  }
 
-    }
-    .banano-funds ul .list-items2 {
-      display: flex;
-      align-items: center;
-      list-style: none;
-    }
+  #wallet-total {
+    margin: 10px 5px;
+  }
+
+  #wallet-total p {
+    margin: 0;
+    font-size: 0.8em;
+  }
+  .crypto-price {
+    font-size: 0.6em;
+    align-items: center;
+  }
+  .crypto-price p {
+    justify-content: center;
+  }
+  #walletSearch {
+    align-items: center;
+  }
+  #bananoContainer {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+  }
+  footer {
+    font-size: 1em;
+  }
+  .boompow-transactions {
+    margin: 2em 1em;
+  }
+
+  #slotAccounts {
+    color: white;
+    size: 0.4em;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+
+  .banano-funds,
+  .receivable-transactions {
+    width: 100%;
+    margin: 20px 0;
+  }
+  #bar-top {
+    margin-bottom: 1.5em;
+  }
+  .banano-funds ul .list-items2 {
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
 }
