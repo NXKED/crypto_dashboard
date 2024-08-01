@@ -129,7 +129,8 @@ const GetSlotsDist = () => {
           <ul style={{ listStyleType: "none", padding: 0 }}>
             {accounts.map((account, index) => (
               <li key={index}>
-                <span style={{ color: "yellow" }}>{index + 1}</span>. {account.address}: {account.amount.toFixed(0)}
+                <span style={{ color: "yellow" }}>{index + 1}</span>.{" "}
+                {account.address}: {account.amount.toFixed(0)}
               </li>
             ))}
           </ul>
@@ -140,3 +141,5 @@ const GetSlotsDist = () => {
 };
 
 export default GetSlotsDist;
+
+// todo: add case for no connection to server
