@@ -75,7 +75,7 @@ export const TESTNET_AUTHENTICATORS = [
 ];
 
 export const BLOCKCHAIN = { ...MAINNET };
-export const coins = ["bitcoin", "solana", "bitcoin-cash", "wax", "banano"];
+export const coins = ["bitcoin", "solana", "bitcoin-cash", "wax", "banano", "polygon",];
 export const initialWallets = [
   "p2wti.wam",
   "t.keg.wam",
