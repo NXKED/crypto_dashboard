@@ -75,7 +75,14 @@ export const TESTNET_AUTHENTICATORS = [
 ];
 
 export const BLOCKCHAIN = { ...MAINNET };
-export const coins = ["bitcoin", "solana", "bitcoin-cash", "wax", "banano"];
+export const coins = [
+  "bitcoin",
+  "solana",
+  "solana",
+  "bitcoin-cash",
+  "wax",
+  "polygon",
+];
 export const initialWallets = [
   "p2wti.wam",
   "t.keg.wam",
@@ -87,5 +94,9 @@ export const myWallet = ["p2wti.wam"];
 export const BANWALLET = [
   "ban_1igof5isd3xxn7yen8owx1m9cje68mt3n3cpyp8kqkzkcr5x6hwcxwy1pzmq",
 ];
-export const BOOMPOW = ["ban_1boompow14irck1yauquqypt7afqrh8b6bbu5r93pc6hgbqs7z6o99frcuym",];
-export const SLOTS = ["ban_1s1hot8adygxuj96f35dicnmd47cctazoaiia9uduk731nqt6fuenfax9ckt",];
+export const BOOMPOW = [
+  "ban_1boompow14irck1yauquqypt7afqrh8b6bbu5r93pc6hgbqs7z6o99frcuym",
+];
+export const SLOTS = [
+  "ban_1s1hot8adygxuj96f35dicnmd47cctazoaiia9uduk731nqt6fuenfax9ckt",
+];
