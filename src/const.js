@@ -78,7 +78,7 @@ export const BLOCKCHAIN = { ...MAINNET };
 export const coins = [
   "bitcoin",
   "solana",
-  "solana",
+  "ethereum",
   "bitcoin-cash",
   "wax",
   "polygon",
