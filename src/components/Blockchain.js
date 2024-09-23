@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { coins } from "../const";
 
-const API_KEY = "b5fe576b-526d-4d72-8a95-98ec1d1e5e82";
+const coinNameMap = {
+  "btc-bitcoin": "BTC",
+  "eth-ethereum": "ETH",
+  "bch-bitcoin-cash": "BCH",
+  "wax-wax": "WAX",
+  "pol-polygon-ecosystem-token": "MATIC",
+  "sol-solana": "SOL",
+};
 
 const CryptoPrice = () => {
   const [cryptoData, setCryptoData] = useState(null);
@@ -14,21 +21,12 @@ const CryptoPrice = () => {
 
         const requests = coins.map(async (coin) => {
           const response = await axios.get(
-            `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest`,
-            {
-              params: {
-                symbol: coin.toUpperCase(),
-                convert: "USD",
-              },
-              headers: {
-                "X-CMC_PRO_API_KEY": API_KEY,
-              },
-            }
+            `https://api.coinpaprika.com/v1/tickers/${coin}`
           );
 
-          const coinData = response.data.data[coin.toUpperCase()];
-          const currentPrice = coinData.quote.USD.price;
-          const percentageChange = coinData.quote.USD.percent_change_24h;
+          const coinData = response.data;
+          const currentPrice = coinData.quotes.USD.price;
+          const percentageChange = coinData.quotes.USD.percent_change_24h;
 
           let decimals;
           if (coin.toLowerCase() === "banano") {
@@ -49,7 +47,7 @@ const CryptoPrice = () => {
 
         setCryptoData(data);
       } catch (error) {
-        console.error("Error fetching crypto prices:", error);
+        console.error("Error fetching crypto prices from Coinpaprika:", error);
       }
     };
 
@@ -57,7 +55,7 @@ const CryptoPrice = () => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 3 * 60 * 1000);
+    }, 6 * 60 * 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -70,7 +68,7 @@ const CryptoPrice = () => {
             ([coin, { usd, percentageChange }]) => (
               <div key={coin}>
                 <p>
-                  {`${coin.toUpperCase()} $${usd} `}
+                  {`${coinNameMap[coin] || coin.toUpperCase()} $${usd} `}
                   <span
                     style={{
                       color: percentageChange >= 0 ? "green" : "red",
@@ -84,7 +82,7 @@ const CryptoPrice = () => {
           )}
         </div>
       ) : (
-        <p>Loading...</p>
+        <p>Waiting for API... (5min)</p>
       )}
     </div>
   );
