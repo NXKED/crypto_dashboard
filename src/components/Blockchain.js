@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { coins } from "../const";
 
+const API_KEY = "b5fe576b-526d-4d72-8a95-98ec1d1e5e82";
+
 const CryptoPrice = () => {
   const [cryptoData, setCryptoData] = useState(null);
 
@@ -12,25 +14,26 @@ const CryptoPrice = () => {
 
         const requests = coins.map(async (coin) => {
           const response = await axios.get(
-            `https://api.coingecko.com/api/v3/coins/${coin}/market_chart`,
+            `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest`,
             {
               params: {
-                vs_currency: "usd",
-                days: "1",
+                symbol: coin.toUpperCase(),
+                convert: "USD",
+              },
+              headers: {
+                "X-CMC_PRO_API_KEY": API_KEY,
               },
             }
           );
 
-          const prices = response.data.prices;
-          const currentPrice = prices[prices.length - 1][1];
-          const previousPrice = prices[0][1];
-          const percentageChange =
-            ((currentPrice - previousPrice) / previousPrice) * 100;
+          const coinData = response.data.data[coin.toUpperCase()];
+          const currentPrice = coinData.quote.USD.price;
+          const percentageChange = coinData.quote.USD.percent_change_24h;
 
           let decimals;
-          if (coin === "banano") {
+          if (coin.toLowerCase() === "banano") {
             decimals = 4;
-          } else if (coin === "wax") {
+          } else if (coin.toLowerCase() === "wax") {
             decimals = 3;
           } else {
             decimals = 2;

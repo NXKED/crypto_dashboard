@@ -27,7 +27,7 @@ const App = () => {
       const inputValue = event.target.value;
       console.log("React Input value changed:", inputValue);
 
-      // only call if greater than 8 chars (for wax wallets xxxxx.wam)
+      // change to 9 for anchor?
       if (inputValue.length > 8) {
         handleUpdatedAccountName(inputValue);
       }

@@ -107,16 +107,28 @@ const BanStats = () => {
                 </a>
               </div>
               <div id="stats">{`To be a Top ${topX} holder:`}</div>
-              <button className="topXButton" onClick={() => handleOffsetChange(100)}>
+              <button
+                className="topXButton"
+                onClick={() => handleOffsetChange(100)}
+              >
                 100
               </button>
-              <button className="topXButton" onClick={() => handleOffsetChange(250)}>
+              <button
+                className="topXButton"
+                onClick={() => handleOffsetChange(250)}
+              >
                 250
               </button>
-              <button className="topXButton" onClick={() => handleOffsetChange(1000)}>
+              <button
+                className="topXButton"
+                onClick={() => handleOffsetChange(1000)}
+              >
                 1k
               </button>
-              <button className="topXButton" onClick={() => handleOffsetChange(10000)}>
+              <button
+                className="topXButton"
+                onClick={() => handleOffsetChange(10000)}
+              >
                 10k
               </button>
               <div>
@@ -141,4 +153,5 @@ const BanStats = () => {
 
 export default BanStats;
 
-//TODO pie chart for funds? Save Session - settings input (ban,wax wallets, cryptos) + code for predef. values. Nightmode || color picker
+//TODO pie chart for funds? Save Session - settings input (ban,wax wallets, cryptos) + code for predef values. Nightmode || color picker
+//Eventually: Design, Multiple chains supported. Reduce Ban

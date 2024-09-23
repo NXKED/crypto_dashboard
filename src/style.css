@@ -235,13 +235,14 @@ button {
   color: black;
 }
 
-#boomPowChart, #slotAccounts {
+#boomPowChart,
+#slotAccounts {
   color: white;
 }
-.boompow-transactions, #slotAccounts {
+.boompow-transactions,
+#slotAccounts {
   margin-bottom: 3em;
 }
-
 
 #bar-top {
   color: white;
@@ -291,7 +292,7 @@ footer {
 @media screen and (min-width: 1200px) {
   body,
   footer {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
   }
 }
@@ -376,7 +377,6 @@ footer {
     margin-bottom: 10px;
     padding-bottom: 10px;
   }
-
 
   .banano-funds,
   .receivable-transactions {
