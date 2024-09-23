@@ -80,7 +80,7 @@ export const coins = [
   "solana",
   "bitcoin-cash",
   "wax",
-  "pol-ex-matic",
+  "polygon-ecosystem-token",
 ];
 export const initialWallets = [
   "p2wti.wam",
