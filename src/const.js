@@ -82,6 +82,8 @@ export const coins = [
   "pol-polygon-ecosystem-token",
   "bch-bitcoin-cash",
   "sol-solana",
+  "ban-banano",
+  "ponke-ponke",
 ];
 export const initialWallets = [
   "p2wti.wam",

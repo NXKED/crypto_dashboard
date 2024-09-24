@@ -9,6 +9,8 @@ const coinNameMap = {
   "wax-wax": "WAX",
   "pol-polygon-ecosystem-token": "MATIC",
   "sol-solana": "SOL",
+  "ban-banano": "BAN",
+  "ponke-ponke": "PONKE",
 };
 
 const CryptoPrice = () => {

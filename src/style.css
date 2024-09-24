@@ -163,7 +163,7 @@ button {
   border: 2px solid white;
   border-radius: 8px;
   max-width: 370px;
-  margin: 50px 10px 50px 0;
+  margin: 0px 10px 50px 0;
   background-color: #8e80802b;
 }
 
@@ -292,7 +292,7 @@ footer {
 @media screen and (min-width: 1200px) {
   body,
   footer {
-    max-width: 1300px;
+    max-width: 1500px;
     margin: 0 auto;
   }
 }
